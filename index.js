@@ -3,11 +3,13 @@
 
 const connectToMongodb = require("./db");
 const express = require("express");
+var cors = require('cors');
 
 connectToMongodb(); // connected to db by calling a function written in db.js
 
 const app = express();
 const port = process.env.PORT || 8080;
+app.use(cors());
 
 app.use(express.json()); // middleware used for using res.body content
 
